@@ -13,6 +13,6 @@ if test -f "$VIM_SETTINGS_FILE"; then
   echo "$VIM_SETTINGS_FILE exist already"
 else
   echo "symlinking vim file"
-	ln -sn $HOME/.custom-zsh/vim $VIM_SETTINGS_FILE
+	ln -sn $RSHELL/vim $VIM_SETTINGS_FILE
 fi
 

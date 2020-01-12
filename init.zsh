@@ -1,6 +1,9 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+export RSHELL=$(dirname $(readlink -f $0))
+
+
 # General alias
 alias reload="source ~/.zshrc"
 alias ll='ls -lh'
