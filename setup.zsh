@@ -13,6 +13,7 @@ if test -f "$VIM_SETTINGS_FILE"; then
   echo "$VIM_SETTINGS_FILE exist already"
 else
   echo "symlinking vim file"
-	ln -sn $RSHELL/vim $VIM_SETTINGS_FILE
+  mkdir -p "${VIM_SETTINGS_FILE%/*}"
+  ln -sn $RSHELL/vim $VIM_SETTINGS_FILE
 fi
 
