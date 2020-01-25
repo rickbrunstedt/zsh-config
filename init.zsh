@@ -21,13 +21,19 @@ else
   alias o='xdg-open'
 fi
 
-get_abs_filename() {
+get_absolute_filename() {
   # $1 : relative filename
   echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
 }
 
+source_if_exists () {
+    [[ -f "$1" ]] && source "$1"
+}
+
+source_if_exists ~/.zinit/bin/zinit.zsh
+
 # Git alias and functions
-alias gst="git status"
+# alias gst="git status"
 alias gidiot="git commit --amend --no-edit"
 alias cb="current_branch | tr -d '\n' | pbcopy"
 alias gcauth="git commit --amend --reset-author"
@@ -36,23 +42,23 @@ gsf() {
 }
 
 
-if typeset -f zplugin > /dev/null; then
+if typeset -f zinit > /dev/null; then
   # regular plugins loaded without tracking.
-  zplugin light zsh-users/zsh-autosuggestions
-  zplugin light zdharma/fast-syntax-highlighting
+  zinit light zsh-users/zsh-autosuggestions
+  zinit light zdharma/fast-syntax-highlighting
 
   # Plugin history-search-multi-word loaded with tracking.
-  zplugin load zdharma/history-search-multi-word
+  zinit load zdharma/history-search-multi-word
 
   # Load the pure theme, with zsh-async library that's bundled with it.
-  zplugin ice pick"async.zsh" src"pure.zsh"
-  zplugin light sindresorhus/pure
+  zinit ice pick"async.zsh" src"pure.zsh"
+  zinit light sindresorhus/pure
 
   # prezto's git module
   # zplugin ice svn
   # zplugin snippet PZT::modules/git
 
   # oh-my-zsh
-  zplugin snippet OMZ::plugins/git/git.plugin.zsh
+  zinit snippet OMZ::plugins/git/git.plugin.zsh
 fi
 
