@@ -43,4 +43,5 @@ function setup_all() {
   install_vundle
   link_vim_file
   install_zinit
+  add_rshell_to_zsh
 }

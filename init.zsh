@@ -61,4 +61,3 @@ if typeset -f zinit > /dev/null; then
   # oh-my-zsh
   zinit snippet OMZ::plugins/git/git.plugin.zsh
 fi
-
