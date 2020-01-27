@@ -2,6 +2,13 @@
 alias reload="source ~/.zshrc"
 alias ll='ls -lh'
 alias la='ll -A'
+alias ...="../../"
+alias ....="../../../"
+alias .....="../../../../"
+alias ......="../../../../../"
+
+# visual studio code
+alias cn="code --new-window"
 
 # Resource Usage
 alias df='df -kh'
@@ -24,9 +31,7 @@ source_if_exists () {
     [[ -f "$1" ]] && source "$1"
 }
 
-
 # Git alias and functions
-# alias gst="git status"
 alias gidiot="git commit --amend --no-edit"
 alias cb="current_branch | tr -d '\n' | pbcopy"
 alias gcauth="git commit --amend --reset-author"
