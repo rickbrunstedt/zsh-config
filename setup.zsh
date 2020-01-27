@@ -1,3 +1,13 @@
+mac_readlinkf() {
+  perl -MCwd -e 'print Cwd::abs_path shift' "$1";
+}
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  RSHELL=$(dirname $(mac_readlinkf $0))
+else
+  RSHELL=$(dirname $(readlink -f $0))
+fi
+
 
 function install_vundle() {
   VUNDLE_FILE=~/.vim/bundle/Vundle.vim
@@ -16,7 +26,7 @@ function link_vim_file() {
   else
     echo "symlinking vim file"
     mkdir -p "${VIM_SETTINGS_FILE%/*}"
-    ln -sn $RSHELL/vim $VIM_SETTINGS_FILE
+    ln -s $RSHELL/vim $VIM_SETTINGS_FILE
   fi
 }
 
@@ -35,8 +45,9 @@ function install_zinit() {
 }
 
 function add_rshell_to_zsh() {
-  text="source \${HOME}/.custom-zsh/init.zsh"
-  echo $text >> ${HOME}/.zshrc
+  # path="source \${HOME}/.custom-zsh/init.zsh"
+  path="source $RSHELL/init.zsh"
+  echo $path >> ${HOME}/.zshrc
 }
 
 function setup_all() {
