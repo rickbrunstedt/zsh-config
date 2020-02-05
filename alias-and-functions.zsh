@@ -22,6 +22,12 @@ else
   alias o='xdg-open'
 fi
 
+# pbcopy Everywhere
+if [[ "$OSTYPE" == linux-gnu ]]; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
+
 get_absolute_filename() {
   # $1 : relative filename
   echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
