@@ -51,9 +51,9 @@ set ruler
 map <C-b> :NERDTreeToggle<CR>
 
 " Set tab settings
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 " Theme settings
