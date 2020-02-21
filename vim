@@ -47,6 +47,9 @@ set ruler
 " set undolevels=1000
 " set backspace=indent,eol,start
 
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+
 " Toggle NERDTree
 map <C-b> :NERDTreeToggle<CR>
 
