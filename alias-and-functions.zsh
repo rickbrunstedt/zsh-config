@@ -1,11 +1,19 @@
 # General alias
 alias reload="source ~/.zshrc"
-alias ll='ls -lh'
-alias la='ll -A'
 alias ...="../../"
 alias ....="../../../"
 alias .....="../../../../"
 alias ......="../../../../../"
+
+
+# ls
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+alias ll='ls -lh'
+alias la='ll -A'
 
 # visual studio code
 alias cn="code --new-window"
