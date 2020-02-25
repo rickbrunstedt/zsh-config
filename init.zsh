@@ -18,12 +18,10 @@ source $RSHELL/alias-and-functions.zsh
 # Zinit
 source_if_exists ~/.zinit/bin/zinit.zsh
 if typeset -f zinit > /dev/null; then
-  # regular plugins loaded without tracking.
-  zinit light zsh-users/zsh-autosuggestions
-  zinit light zdharma/fast-syntax-highlighting
-
-  # Plugin history-search-multi-word loaded with tracking.
-  zinit load zdharma/history-search-multi-word
+ zinit light zsh-users/zsh-autosuggestions
+  zinit light zsh-users/zsh-syntax-highlighting
+  zinit light chrissicool/zsh-256color
+  zinit light hbd/history-search-multi-word
 
   # Load the pure theme, with zsh-async library that's bundled with it.
   zinit ice pick"async.zsh" src"pure.zsh"
@@ -34,4 +32,7 @@ if typeset -f zinit > /dev/null; then
   zinit snippet OMZ::lib/git.zsh
   # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
   zinit snippet OMZ::plugins/git/git.plugin.zsh
+
+  # https://github.com/sorin-ionescu/prezto/tree/master/modules/utility
+  # zinit snippet PZT::modules/utility/init.zsh
 fi
