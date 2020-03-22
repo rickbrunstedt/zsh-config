@@ -14,6 +14,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'dracula/vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 
 " Vundle end
 call vundle#end()             " required
@@ -49,6 +51,7 @@ set ruler
 
 " Toggle NERDTree
 map <C-b> :NERDTreeToggle<CR>
+map <C-j> :FZF<CR>
 
 " Set tab settings
 set tabstop=2

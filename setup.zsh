@@ -8,6 +8,10 @@ else
   RSHELL=$(dirname $(readlink -f $0))
 fi
 
+function install_fzf() {
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+}
 
 function install_vundle() {
   VUNDLE_FILE=~/.vim/bundle/Vundle.vim
