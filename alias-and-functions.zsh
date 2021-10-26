@@ -1,5 +1,5 @@
 # General alias
-alias reload="source ~/.zshrc"
+alias reload="source ~/.zprofile"
 alias ...="../../"
 alias ....="../../../"
 alias .....="../../../../"
@@ -52,3 +52,6 @@ alias gcauth="git commit --amend --reset-author"
 gsf() {
   sh -c "git diff --relative --name-only HEAD~${1:-1}"
 }
+
+# NPM - updated packages to latest versions
+alias npm-update-versions="npx npm-check-updates -u"

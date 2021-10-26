@@ -47,12 +47,10 @@ function install_zinit() {
 function add_rshell_to_zsh() {
   # path="source \${HOME}/.custom-zsh/init.zsh"
   path="source $RSHELL/init.zsh"
-  echo $path >> ${HOME}/.zshrc
+  echo $path >> ${HOME}/.zprofile
 }
 
 function setup_all() {
-  install_vundle
-  link_vim_file
   install_zinit
   add_rshell_to_zsh
 }

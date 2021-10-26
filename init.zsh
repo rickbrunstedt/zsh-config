@@ -9,23 +9,25 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export RSHELL=$(dirname $(mac_readlinkf $0))
 else
   export RSHELL=$(dirname $(readlink -f $0))
-  # export RSHELL=$(dirname "$(readlink -f $0)")
 fi
 
 source $RSHELL/general-zsh.zsh
 source $RSHELL/alias-and-functions.zsh
 
 # Zinit
-source_if_exists ~/.zinit/bin/zinit.zsh
+source ~/.zinit/bin/zinit.zsh
 if typeset -f zinit > /dev/null; then
- zinit light zsh-users/zsh-autosuggestions
+  zinit light zsh-users/zsh-autosuggestions
   zinit light zsh-users/zsh-syntax-highlighting
   zinit light chrissicool/zsh-256color
   zinit light hbd/history-search-multi-word
 
   # Load the pure theme, with zsh-async library that's bundled with it.
-  zinit ice pick"async.zsh" src"pure.zsh"
-  zinit light sindresorhus/pure
+  # zinit ice pick"async.zsh" src"pure.zsh"
+  # zinit light sindresorhus/pure
+
+  # Powerlevel10k theme
+  zinit ice depth=1; zinit light romkatv/powerlevel10k
 
   # oh-my-zsh
   # https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/git.zsh
@@ -34,5 +36,5 @@ if typeset -f zinit > /dev/null; then
   zinit snippet OMZ::plugins/git/git.plugin.zsh
 
   # https://github.com/sorin-ionescu/prezto/tree/master/modules/utility
-  # zinit snippet PZT::modules/utility/init.zsh
+  zinit snippet PZT::modules/utility/init.zsh
 fi
