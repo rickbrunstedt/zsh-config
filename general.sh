@@ -4,7 +4,7 @@
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-export EDITOR="$VISUAL"
+# export EDITOR="nvim"
 
 alias reload="source ~/.zprofile"
 
@@ -35,9 +35,11 @@ function git_current_branch() {
     echo $branch
   fi
 }
+
 function gsf() {
   sh -c "git diff --relative --name-only HEAD~${1:-1}"
 }
+
 alias gst="git status"
 alias gpf="git push --force-with-lease"
 alias gpsup="git push --set-upstream origin $(git_current_branch)"
